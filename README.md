@@ -33,7 +33,7 @@ Or install it yourself as:
 ```ruby
 module IDog
   def self.create(*); end
-  def eat(*); end
+  def eat(food); end
   def voice; end
 end
 ```
@@ -46,11 +46,11 @@ class Lessy
   implements IDog
   
   def self.create(name)
-    ...
+    # Creating...
   end
   
   def eat(food)
-    ...
+    # Eating...
   end
   
   def voice
@@ -66,6 +66,10 @@ class Lessy
   extend StrongInterface
   implements IDog
 
+  def eat(food, water)
+    # Eating...
+  end
+
   def voice
     'Gav'
   end
@@ -76,7 +80,7 @@ end
 
 ```shell
 StrongInterface::MethodNotImplemented (Class method `create` is not implemented at `Lessy`)
-Instance method `eat` is not implemented at `Lessy`
+Invalid parameters at method `eat`, expected: `def eat(food)`, got: `def eat(food, water)`
 ```
 
 ## Validation Strategies
@@ -100,7 +104,8 @@ even if it has this kind of a problem in code.
 ## TODO
 
 - [x] Check if methods of interfaces all exists in a class or module
-- [ ] Check the arguments of methods
+- [x] Check the arguments of methods
+- [ ] Allow optional arguments at interface methods???
 
 ## Development
 
@@ -110,7 +115,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/strong_interface. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/strong_interface/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/programyan/strong_interface. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/programyan/strong_interface/blob/main/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -119,4 +124,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the StrongInterface project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/strong_interface/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the StrongInterface project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/programyan/strong_interface/blob/main/CODE_OF_CONDUCT.md).

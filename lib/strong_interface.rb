@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'strong_interface/version'
+require 'strong_interface/parameters_validator'
 
 module StrongInterface
   MethodNotImplemented = Class.new(StandardError)
@@ -39,7 +40,11 @@ module StrongInterface
 
   def validate_class_methods(interface)
     interface.methods(false).filter_map do |klass_method|
-      "Class method `#{klass_method}` is not implemented at `#{self}`" unless methods(false).include?(klass_method)
+      unless methods(false).include?(klass_method)
+        "Class method `#{klass_method}` is not implemented at `#{self}`"
+      else
+        ParametersValidator.new(interface.method(klass_method), method(klass_method)).validate
+      end
     end
   end
 
@@ -47,6 +52,8 @@ module StrongInterface
     interface.instance_methods.filter_map do |instance_method|
       unless instance_methods.include?(instance_method)
         "Instance method `#{instance_method}` is not implemented at `#{self}`"
+      else
+        ParametersValidator.new(interface.instance_method(instance_method), instance_method(instance_method)).validate
       end
     end
   end

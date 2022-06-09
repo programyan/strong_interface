@@ -2,6 +2,10 @@
 
 ## main (unreleased)
 
+---
+
+## 0.2.0
+
 ### New features
 
 - [9506eb3](https://github.com/programyan/strong_interface/commit/9506eb31666628cd6d06a4a4608ca81081a1315b) Add validation parameters

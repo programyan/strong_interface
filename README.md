@@ -32,6 +32,7 @@ Or install it yourself as:
 
 ```ruby
 module IDog
+  WORD = String
   def self.create(*); end
   def eat(food); end
   def voice; end
@@ -45,6 +46,8 @@ class Lessy
   extend StrongInterface
   implements IDog
   
+  WORD = 'gav'
+
   def self.create(name)
     # Creating...
   end
@@ -54,7 +57,7 @@ class Lessy
   end
   
   def voice
-    'Gav'
+    WORD
   end
 end
 ```
@@ -79,7 +82,8 @@ end
 #### Exception will be raised
 
 ```shell
-StrongInterface::MethodNotImplemented (Class method `create` is not implemented at `Lessy`)
+StrongInterface::ImplementationError (Constant `WORD` is absent at `Lessy`)
+Class method `create` is not implemented at `Lessy`
 Invalid parameters at method `eat`, expected: `def eat(food)`, got: `def eat(food, water)`
 ```
 
@@ -92,7 +96,7 @@ If the variable is not set, the `raise` strategy will be applied.
 
 #### raise (default)
 
-This is a default strategy. When validator finds incorrect implementation, it raises the `StrongInterface::MethodNotImplemented` exception,
+This is a default strategy. When validator finds incorrect implementation, it raises the `StrongInterface::ImplementationError` exception,
 and provides a list of methods which aren't implemented
 
 #### log
@@ -105,6 +109,8 @@ even if it has this kind of a problem in code.
 
 - [x] Check if methods of interfaces all exists in a class or module
 - [x] Check the arguments of methods
+- [x] Check constants
+- [ ] Checking the privacy of methods
 - [ ] Allow optional arguments at interface methods???
 
 ## Development

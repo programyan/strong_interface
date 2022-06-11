@@ -4,6 +4,12 @@
 
 ---
 
+## 0.3.1
+
+## Bugfixes
+
+- Fixed CHANGELOG.md
+
 ## 0.3.0
 
 ### New Features

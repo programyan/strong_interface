@@ -2,7 +2,9 @@
 
 ## main (unreleased)
 
----
+### New Features
+
+- [#1](https://github.com/programyan/strong_interface/pull/1) Added constants validation
 
 ## 0.2.0
 

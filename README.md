@@ -110,7 +110,7 @@ even if it has this kind of a problem in code.
 - [x] Check if methods of interfaces all exists in a class or module
 - [x] Check the arguments of methods
 - [x] Check constants
-- [ ] Checking the privacy of methods
+- [ ] Checking the privacy of methods???
 - [ ] Allow optional arguments at interface methods???
 
 ## Development

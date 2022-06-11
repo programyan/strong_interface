@@ -20,7 +20,28 @@ RSpec.describe StrongInterface do
           # Say text somehow
         end
       end
-    }.to raise_error(StrongInterface::MethodNotImplemented)
+    }.to raise_error(StrongInterface::ImplementationError)
+  end
+
+  context 'with missing constant' do
+    it 'raises error' do
+      expect {
+        module IScream
+          LOUD = Integer
+
+          def scream; end
+        end
+
+        class TestClass
+          extend StrongInterface
+          implements IScream
+
+          def scream
+            # Scream something somehow
+          end
+        end
+      }.to raise_error(StrongInterface::ImplementationError)
+    end
   end
 
   it 'do not raise error when everything is ok' do

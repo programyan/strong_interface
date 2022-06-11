@@ -24,16 +24,17 @@ module StrongInterface
       return false if @interface_method_parameters.size != @klass_method_parameters.size
 
       @interface_method_parameters.each.with_index.all? do |key, index|
-        if key == :req
-          %i(req opt).include? @klass_method_parameters[index]
-        elsif key == :keyreq
-          %i(keyreq key).include? @klass_method_parameters[index]
+        case key
+        when :req
+          %i[req opt].include? @klass_method_parameters[index]
+        when :keyreq
+          %i[keyreq key].include? @klass_method_parameters[index]
         end
       end
     end
 
-    def description(m)
-      m.inspect.scan(/[\.|#](\S+?\(.*?\))/).last.first
+    def description(metod)
+      metod.inspect.scan(/[.|#](\S+?\(.*?\))/).last.first
     end
   end
 end

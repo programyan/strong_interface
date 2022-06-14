@@ -13,6 +13,7 @@ module StrongInterface
   }.freeze
 
   # @param interfaces [Module|Class|Array<Module|Class>] the list of interfaces that class or module should implements
+  #
   # @raise [UnknownStrategy] if SI_VALIDATION_STRATEGY environment variable has wrong value
   # @raise [ImplementationError] if describing some methods of an interface has been forgotten and
   #                              SI_VALIDATION_STRATEGY environment variable is set to `raise`

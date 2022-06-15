@@ -1,4 +1,10 @@
+
+
 # StrongInterface
+
+[![RSpec](https://github.com/programyan/strong_interface/actions/workflows/rspec.yml/badge.svg)](https://github.com/programyan/strong_interface/actions)
+
+---
 
 Simple implementation of an interface pattern for Ruby
 
